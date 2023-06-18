@@ -16,6 +16,7 @@
     </head>
     <body>
 
+    {% if is_granted('ROLE_AUTHOR') %}
         <nav class="py-2 bg-dark border-bottom">
             <div class="container d-flex flex-wrap">
                 <div class="dropdown">
@@ -24,7 +25,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
                         <li><a class="dropdown-item" href="{{ path('admin') }}">Tableau de bord</a></li>
-                        <li><a class="dropdown-item" href="{{ ea_index('MenuCrudController') }}">Menus</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a class="dropdown-item" href="{{ ea_index('MenuCrudController') }}">Menus</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -38,6 +41,7 @@
                 </div>
             </div>
         </nav>
+    {% endif %}
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="{{ path('app_home') }}">
