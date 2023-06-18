@@ -20,9 +20,12 @@
         {% endif %}
 
         <div class="comment-list">
-            {% for comment in article.comments %}
+            {% for comment in comments %}
                 {% include 'comment/index.html.twig' with [comment] %}
             {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(comments) }}
         </div>
     </div>
 {% endblock %}

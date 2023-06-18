@@ -43,8 +43,8 @@ class App{
                 const commentList = document.querySelector('.comment-list');
                 const commentCount = document.querySelector('.comment-count');
                 const commentContent = document.querySelector('#comment_content');
-                commentList.insertAdjacentHTML('beforeend', json.message);
-                commentList.lastElementChild.scrollIntoView();
+                commentList.insertAdjacentHTML('afterbegin', json.message);
+                //commentList.lastElementChild.scrollIntoView();
                 commentCount.innerText = json.numberOfComments;
                 commentContent.value = '';
             }
